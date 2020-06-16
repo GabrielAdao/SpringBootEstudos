@@ -1,5 +1,7 @@
 package com.spring.course.resources;
+import com.spring.course.entities.Product;
 import com.spring.course.entities.User;
+import com.spring.course.services.ProductService;
 import com.spring.course.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,23 +14,23 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value = "/users")
-public class UserResource {
+@RequestMapping(value = "/products")
+public class ProductResource {
 
     @Autowired
-    private UserService service;
+    private ProductService service;
 
     @GetMapping
-    public ResponseEntity<List<User>> findAll() {
+    public ResponseEntity<List<Product>> findAll() {
 
-        List<User> list = service.findAll();
+        List<Product> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<User> findById(@PathVariable Long id){
+    public ResponseEntity<Product> findById(@PathVariable Long id){
 
-        User obj = service.findById(id);
+        Product obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
 
     }
