@@ -1,0 +1,4 @@
+package com.spring.course.entities;
+
+public class Product {
+}
